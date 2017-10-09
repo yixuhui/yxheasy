@@ -1,0 +1,81 @@
+
+cordova create yxhdemo cn.yixuhui.yxhdemo YxhDemo
+---增加平台应用
+cordova platform update browser --save
+cordova platform add browser --save
+--发布并浏览页面
+cordova run browser
+cordova platform rm android 
+cordova platform add android --save
+cordova platform add android@5.0.1
+cordova platform add android @4.1.1
+
+cordova platform add android@^4.4.2 --save
+
+检查下平台需求是否满足。基本上 Cordova 需要你把 Java SDK， Android SDK 和 Gradle 都配置好
+cordova requirements android
+构建 apk
+cordova build android
+
+ cordova build 
+--C:\Program Files\Java\jdk1.8.0_91\
+C:\Program Files\Java\jdk1.6.0_43
+
+npm install -g cordova ionic
+如何卸载phonegap以及如何卸载cordova
+npm uninstall cordova  -g
+npm uninstall phonegap -g
+npm uninstall cordova  -g
+http://blog.csdn.net/zythy/article/details/21806183
+C:\ProgramData\Oracle\Java\javapath;%MAVEN_HOME%\bin;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;e:\app\Administrator\product\11.2.0\dbhome_1\bin;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Microsoft SQL Server\80\Tools\Binn\;C:\Program Files\Microsoft SQL Server\90\DTS\Binn\;C:\Program Files\Microsoft SQL Server\90\Tools\binn\;C:\Program Files (x86)\Microsoft SQL Server\90\Tools\binn\;C:\Program Files (x86)\Microsoft SQL Server\90\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\90\Tools\Binn\VSShell\Common7\IDE\;C:\Program Files (x86)\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\;D:\Program Files\TortoiseSVN\bin;D:\Program Files (x86)\Subversion\bin;D:\phpStudy\php\php-5.4.45;C:\ProgramData\ComposerSetup\bin;D:\nodejs\;%SDK_HOME%\tools;%SDK_HOME%\platform-tools;
+
+127.0.0.1 www.kevin.com
+127.0.0.1 localhost
+10.180.160.87 www.kevin.com
+10.180.160.87 localhost
+
+
+先安装Nodejs，再通过npm去安装cordova ionic
+npm install -g cordova ionic
+创建第一个Cordova项目helloworld：
+cordova create hello com.example.hello HelloWorld
+
+
+
+http://blog.csdn.net/rflyee/article/details/8973529
+
+var listbox = document.getElementById("showlist"); 
+listbox.onclick=function(){ 
+document.getElementById("player_sidebar").style.width = 100; 
+} 
+
+
+D:\cnpm\cordova_demo>cordova build android
+Error: Failed to find 'ANDROID_HOME' environment variable. Try setting setting i
+t manually.
+Failed to find 'android' command in your 'PATH'. Try update your 'PATH' to inclu
+de path to valid SDK directory.
+
+D:\cnpm\cordova_demo>cordova build
+Error: Failed to find 'ANDROID_HOME' environment variable. Try setting setting i
+t manually.
+Failed to find 'android' command in your 'PATH'. Try update your 'PATH' to inclu
+de path to valid SDK directory.
+
+D:\cnpm\cordova_demo>
+
+
+
+D:\cnpm\hello>cordova build android
+ANDROID_HOME=D:\soft\adt-bundle-windows-x86_64-20130917\sdk
+JAVA_HOME=C:\Program Files\Java\jdk1.8.0_91
+Error: Could not find an installed version of Gradle either in Android Studio,
+or on your system to install the gradle wrapper. Please include gradle in your path, or install Android Studio
+
+D:\cnpm\hello>
+
+cordova platform update android@6.0.0 --save
+cordova platform remove android
+
+----- Eclipse开发andriod程序时import android.support.v4或者import android.support.v7提示导入错误解决办法
+http://blog.csdn.net/forandever/article/details/37655139
