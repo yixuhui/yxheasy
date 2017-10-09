@@ -1,0 +1,49 @@
+移动开发框架：Cordova
+Web页面框架：JQueryMobile
+前端脚本库：JQuery、iscroll、progress等
+后台语言：JAVA
+
+.ionicjs.com
+账号   yixuh*****@163.com
+密码   yixuh*****
+
+个人理解 ionic = angularjs+cordova。
+angularjs 用户认证解决方案
+http://www.runoob.com/angularjs/angularjs-intro.html
+
+开源项目：
+http://ionichina.com/t/topic/1267
+
+cordova 实现第三方登录及分享，qq，微信，微博
+http://www.tuicool.com/articles/QziI32Z
+https://github.com/iVanPan/Cordova_QQ/blob/master/README_ZH.md
+http://www.111cn.net/wy/js-ajax/99614.htm
+
+Ionic+Cordova开发环境搭建
+http://blog.csdn.net/gameloft9/article/details/50923615
+
+ ionic3/ag4编写模仿京东商城的demo
+http://blog.csdn.net/jack_king007/article/details/72235920
+
+运行
+克隆这个仓库: https://github.com/HsuanXyz/ionic3-chat.git.
+在项目根目录运行 npm install
+在项目根目录运行 ionic serve
+
+图文分享Windows系统下打包上传上架iOS APP流程
+http://ionichina.com/t/topic/1263
+
+C:\Program Files\Git
+
+
+Cordova - 从相册中选择照片并上传，以及拍照上传
+http://www.hangge.com/blog/cache/detail_1181.html
+
+cordova platform rm android 
+
+Error:Unable to load class 'org.gradle.internal.logging.LoggingManagerInternal'.
+Possible causes for this unexpected error include:<ul><li>
+
+Gradle's dependency cache may be corrupt (this sometimes occurs after a network connection timeout.)
+<a href="syncProject">Re-download dependencies and sync project (requires network)</a></li><li>The state of a Gradle build process (daemon) may be corrupt. Stopping all Gradle daemons may solve this problem.
+<a href="stopGradleDaemons">Stop Gradle build processes (requires restart)</a></li><li>Your project may be using a third-party plugin which is not compatible with the other plugins in the project or the version of Gradle requested by the project.</li></ul>In the case of corrupt Gradle processes, you can also try closing the IDE and then killing all Java processes.

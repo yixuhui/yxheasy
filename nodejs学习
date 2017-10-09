@@ -1,0 +1,39 @@
+1、使用 Vue框架进行界面渲染，使用node.js技术搭建服务器，socket.io实现即时聊天的功能
+2、软件环境：	node.js + angular.js + ionic +iis 浏览器
+
+
+WebSocket+node.js创建即时通信的Web聊天服务器
+http://blog.csdn.net/fareise/article/details/52142640
+
+Socket.IO是Node.js的一个模块，他提供通过WebSocket进行通信的一种简单方式
+
+Node.js + Web Socket 打造即时聊天程序嗨聊
+http://www.cnblogs.com/Wayou/p/hichat_built_with_nodejs_socket.html
+
+
+菜鸟学习nodejs--安装nodejs
+http://blog.csdn.net/lovemenghaibin/article/details/51221100
+菜鸟学习nodejs--包（npm）管理
+http://blog.csdn.net/lovemenghaibin/article/details/51233453
+菜鸟学习nodejs--回调函数
+http://blog.csdn.net/lovemenghaibin/article/details/51235211
+菜鸟学习Node.js--express（一）
+npm install -g express
+npm install -g express-generator
+菜鸟学习nodejs--express(二)路由
+http://blog.csdn.net/lovemenghaibin/article/details/51242106
+菜鸟学习nodejs--Socket.IO即时通讯
+http://blog.csdn.net/lovemenghaibin/article/details/51263774
+菜鸟学习nodejs--Socket.IO二（聊天服务器）
+http://blog.csdn.net/lovemenghaibin/article/details/51297228
+
+
+D:\Program Files\MongoDB\Server\3.4\bin>
+mongod --dbpath D:\app\data\db --auth
+
+mongod --dbpath D:\app\data\db --logpath D:\app\data\log\MongoDB.log --auth
+mongo.exe
+
+db.createUser({user:'sa', pwd:'sa', roles:['userAdminAnyDatabase']})
+
+db.auth('root','root')     
