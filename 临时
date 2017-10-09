@@ -1,0 +1,152 @@
+CREATE USER 'jianfang'@'localhost' IDENTIFIED BY '';
+
+ grant all privileges on *.* TO 'jianfang'@'%' with grant option;
+ 
+ 1 使用具有数据库管理权限的用户登陆MySQL，如root@localehost用户
+$ mysql -uroot -p'root_password'
+2 在mysql中创建用户名和密码
+mysql> create user 'new_username'@'%' IDENTIFIED BY 'new_password';
+3 配置权限
+mysql> grant all privileges on *.* TO 'new_username'@'%' with grant option;
+4 提交并立即生效
+mysql> commit;
+mysql> flush privileges;
+5 退出mysql
+mysql> quit
+
+CREATE DATABASE wap;  
+
+create databse jianfang
+
+grant all on jianfang.* to 'jianfang'@'%' identified by '' with grant option;   #允许账户admin从任何主机连接到数据库mydata
+
+show grants for jianfang@localhost;
+
+source /home/changhe20170908.sql;
+
+
+ 'DB_HOST' => 'localhost',
+    'DB_NAME' => 'changhe',
+    'DB_USER' => 'changhe',
+    'DB_PWD' => 'changhe123456aA',
+
+
+source E:\htdocs\changhe.avic.com\changhe_yxh.sql
+mysql -u changhe -password changhe123456aA
+mysql -u yxheasy -p
+
+mysql -ujianfang -p 
+
+chown -R -v www:www fgj.jxsycm.cn
+
+mysqldump -uchanghe -p en.changhe.com  > en.changhe.com20170908.sql
+
+
+关闭thinkphp右下角的trace可以试试以下步骤:
+
+1.在入口文件index.php 加入
+
+1
+define("APP_DEBUG", false);
+2.在config.php 配置文件中加入
+
+1
+'SHOW_PAGE_TRACE' => false
+3.然后删除缓存文件夹Runtime,刷新页面
+
+
+SELECT * FROM cmf_term_relationships a INNER JOIN cmf_posts as b on a.object_id =b.id INNER JOIN cmf_users as c on b.post_author = c.id WHERE `status` = 1 AND `post_status` = 1 AND `term_id` IN ('3') AND ( '新闻中心' ) ORDER BY post_date DESC LIMIT 0,10
+
+
+term_id = '3' and select * from cmf_terms where name='新闻中心'
+
+//更新状态
+					D("Leader")->where(array("id"=>$gid))->save(array("msg_type"=>"1"));
+
+
+source /home/y/yxh.sql;
+
+http://www.17sucai.com/preview/164877/2017-07-11/T-XYS073%E5%8D%B0%E5%88%B7%E5%8C%85%E8%A3%85/about.html
+
+
+http://www.17sucai.com/preview/396391/2016-11-21/inmark/index.html
+
+http://www.17sucai.com/preview/445090/2017-08-29/%E6%96%B0%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9/index.html
+
+http://www.17sucai.com/pins/demoshow/25477
+http://www.17sucai.com/preview/178784/2014-08-22/%E5%AE%98%E6%96%B9%E7%AE%A1%E7%90%86%E5%90%8E%E5%8F%B0%E6%A8%A1%E6%9D%BF/index.html#7/9
+
+mysql -u root -p
+
+
+cmf_apply                |
+cmf_apply_ceshi 
+
+index.php?g=user&m=register&a=index
+
+
+select sum(c1)/(sum(c1)+sum(c2)+sum(c3)+sum(c4)+sum(c5))*100,
+sum(c2)/(sum(c1)+sum(c2)+sum(c3)+sum(c4)+sum(c5))*100,
+sum(c3)/(sum(c1)+sum(c2)+sum(c3)+sum(c4)+sum(c5))*100,
+sum(c4)/(sum(c1)+sum(c2)+sum(c3)+sum(c4)+sum(c5))*100,
+sum(c5)/(sum(c1)+sum(c2)+sum(c3)+sum(c4)+sum(c5))*100 from
+(
+select 
+case when ctl1='1' then '1' else '0' END c1,
+case when ctl1='2' then '1' else '0' END c2,
+case when ctl1='3' then '1' else '0' END c3,
+case when ctl1='4' then '1' else '0' END c4,
+case when ctl1='5' then '1' else '0' END c5
+ from cmf_dctlmsg) a
+ 
+ 
+mysqldump -ujianfang -p jianfang  > jianfang20170912.sql
+
+mysqldump -ujxyea -p jxyea  > jxyea20170912.sql
+
+mysqldump -usyxfedj -p syxfedj  > syxfedj20170912.sql
+
+mysqldump -uthzedj -p thzedj  > thzedj20170912.sql
+
+mysqldump -ujxzxiang -p jxzxiang  > jxzxiang20170912.sql
+
+tar -czvf xh.thzedj.com.tar.gz xh.thzedj.com/
+
+
+chattr -i /home/wwwroot/www.jxyea.org/.user.ini
+
+
+Delete FROM jxyea Where User='jxyea' and Host='localhost';
+
+select  concat('update cmf_complain set createtime="',createtime,'" where id="',id,'";')  from cmf_complain
+
+
+forever start server.js
+
+
+看到LNMP一键包每个网站都用的单独的.user.ini管理的，所以不能在全局修改open_basedir，只能在.user.ini中修改open_basedir文件。
+第一、编辑权限
+chattr -i /网站目录/.user.ini
+先要编辑权限，然后才可以进行vi修改文件。
+第二、重新授权
+chattr +i /网站目录/.user.ini
+
+vi /usr/local/nginx/conf/nginx.conf
+
+service nginx restart 
+
+
+
+http://10.175.4.194:8095/jxbonus
+http://10.175.40.75:8095/jxbonus
+
+
+如何查看端口被哪个进程占用的方法：
+
+1、lsof -i:端口号
+
+2、netstat -tunlp|grep 端口号
+
+
+
+mysqldump -uroot -p thinkcmf  > thinkcmf.sql
