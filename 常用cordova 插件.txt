@@ -53,3 +53,6 @@ cordova 常用插件
 
 ionic cordova使用笔记
 http://blog.csdn.net/liufang1991/article/details/77529736
+
+Ionic开发指南-第一章 关于Ionic
+http://blog.csdn.net/yrd1989/article/details/39758997
