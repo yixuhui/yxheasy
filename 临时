@@ -150,3 +150,6 @@ http://10.175.40.75:8095/jxbonus
 
 
 mysqldump -uroot -p thinkcmf  > thinkcmf.sql
+
+
+mysqldump -uroot -p jxtax  > jxtax20171010.sql

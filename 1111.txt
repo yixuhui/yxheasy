@@ -1,7 +1,7 @@
 
 cordova create yxhdemo cn.yixuhui.yxhdemo YxhDemo
 ---增加平台应用
-cordova platform update browser --save
+cordova platform add browser --save
 cordova platform add browser --save
 --发布并浏览页面
 cordova run browser
