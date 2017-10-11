@@ -1,0 +1,98 @@
+1、安装方法
+npm install https://github.com/ionic-team/ionic.git --save-dev
+或
+npm install git://github.com/ionic-team/ionic.git
+
+ionic 最新版本下载地址：http://ionicframework.com/docs/overview/#download。
+你也可以在 Github 上下载以下资源文件：https://github.com/driftyco/ionic（在release 目录中）。
+
+2、安装最新版本的Cordova和Ionic(这点之前已经安装好了)
+npm install -g cordova ionic
+3、试着用一个标签模版如下图所示创建一个新的项目：
+ionic start myApp1 tabs
+4、添加ionic平台，如下所示建立app和效仿它
+
+cd myIonicApp 
+4.1安装android
+ionic cordova platform add android 
+ionic build android 
+ionic emulate android
+
+4.2安装browser
+ionic cordova platform add browser
+ionic cordova run browser
+4.3删除
+ionic cordova platform rm browser
+ionic cordova platform rm android 
+
+5=========http://www.jianshu.com/p/0f024a62ba14
+5.1、新建登录页
+// cd到项目目录，然后执行下面的代码
+$ ionic g page login
+ionic g page setting
+ionic g service backbutton.service
+-------------------------------------
+5.2.打开 app.module.ts
+导入新生成的 Login
+import { LoginPage } from '../pages/login/login';
+并分别在加入 declarations 和 entryComponents 后面加入 LoginPage
+我们所有新建的页面都需要在 module 进行声明才能使用
+
+5.3打开app.component.ts
+import { LoginPage } from '../pages/login/login';
+import 登录文件，并修改 rootPage 为 LoginPage
+
+-------------------------------------
+http://www.runoob.com/angularjs/angularjs-services.html
+PHP Ajax 跨域问题最佳解决方案
+http://www.runoob.com/w3cnote/php-ajax-cross-border.html
+<?php
+header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json; charset=UTF-8");
+
+$conn = new mysqli("myServer", "myUser", "myPassword", "Northwind");
+
+$result = $conn->query("SELECT CompanyName, City, Country FROM Customers");
+
+$outp = "";
+while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
+    if ($outp != "") {$outp .= ",";}
+    $outp .= '{"Name":"'  . $rs["CompanyName"] . '",';
+    $outp .= '"City":"'   . $rs["City"]        . '",';
+    $outp .= '"Country":"'. $rs["Country"]     . '"}'; 
+}
+$outp ='{"records":['.$outp.']}';
+$conn->close();
+
+echo($outp);
+?>
+-------------------------------------
+
+
+-------------------------------------
+不适用cordova，直接使用ionic
+ionic start myproject
+cd myproject
+ionic platform add ios
+ionic build ios
+ionic emulate ios
+Android  创建安装运 行
+ionic start myproject
+
+cd myproject
+ionic platform add android
+ionic build android
+ionic emulate android (模拟器运行)
+ionic run android (连接上手机运行)
+安装完成后发现 android  环境下面导航在最上面解决方案:
+http://bbs.phonegap100.com/thread-1495-1-1.html
+---------------------------------
+备注：adb devices
+如果不存在，请设置环境变量
+如：变量名：ADB
+变量值：C:\Users\Brain\Android\android-sdk\platform-tools\adb.exe
+-----------------------------------
+浏览器调试
+ionic serve 重要用于浏览器调试
+cordova serve
+-----------------------------------
