@@ -17,3 +17,40 @@ http://blog.csdn.net/lucy_100/article/details/51086749
 -----------------------------------------------------
  ionic使用cordovaMedia、cordovaFile和cordovaFileTransfer播放在线音乐
  http://blog.csdn.net/fangquan1980/article/details/70741688
+
+
+ cordova plugin add https://github.com/xu-li/cordova-plugin-wechat --variable wechatappid=wxd0f1409999545d21 --save
+
+ ----以下执行是不合理，无法安装
+ cordova plugin rm cordova-plugin-wechat --variable wechatappid=wxd0f1409999545d21 --save
+ cordova plugin add cordova-plugin-wechat --variable WECHATAPPID=wxd0f1409999545d21
+ cordova plugin add cordova-plugin-wechat
+ cordova plugin add cordova-plugin-wechat --variable wechatappid=wxd0f1409999545d21 --save
+ cordova plugin add cordova-plugin-wechat --variable wechatappid=wxd0f1409999545d21
+ ionic入门教程第一课--环境搭建和新建ionic项目
+ http://blog.csdn.net/onil_chen/article/details/50770622
+
+Cordova 3.x 实用插件（3） -- 社交分享SocialSharing
+ http://rensanning.iteye.com/blog/2034061
+
+ 1.登录 
+var scope = “snsapi_userinfo”, 
+state = “_” + (+new Date()); 
+Wechat.auth(scope, state, function (response) { 
+// you may use response.code to get the access token.这里可以直接得到返回的，之后可以进行https://mp.weixin.qq.com/wiki/17/c0f37d5704f0b64713d5d2c37b468d75.html的第二步 
+alert(JSON.stringify(response)); 
+}, function (reason) { 
+alert(“Failed: ” + reason); 
+});
+
+
+cordova plugin rm cordova-plugin-x-socialsharing
+cordova plugin rm cordova-plugin-wechat
+cordova plugin add ionic-plugin-keyboard
+
+Cordova/PhoneGap 微信分享插件
+https://github.com/vilic/cordova-plugin-wechat
+https://github.com/xu-li/cordova-plugin-wechat
+
+cordova plugin rm cordova-plugin-tx-wechat --variable APP_ID=wxd0f1409999545d21
+cordova plugin add cordova-plugin-tx-wechat --variable APP_ID=wxd0f1409999545d21
