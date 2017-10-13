@@ -35,7 +35,7 @@ source E:\htdocs\changhe.avic.com\changhe_yxh.sql
 mysql -u changhe -password changhe123456aA
 mysql -u yxheasy -p
 
-mysql -ujianfang -p 
+mysql -ujianfang -p  
 
 chown -R -v www:www fgj.jxsycm.cn
 
