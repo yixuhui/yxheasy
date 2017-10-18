@@ -1,0 +1,28 @@
+APP ID1106397883
+APP KEYVPhZ20gFNof24ZbC
+
+APP ID1106397883
+APP KEYVPhZ20gFNof24ZbC
+
+APP ID 1106397883
+APP KEYVPhZ20gFNof24ZbC
+
+c按照以下，编译出现问题
+cordova plugin add https://github.com/iVanPan/Cordova_QQ.git --variable QQ_APP_ID=1106397915
+cordova plugin add https://github.com/iVanPan/Cordova_QQ.git --variable QQ_APP_ID=
+cordova plugin add https://github.com/iVanPan/Cordova_QQ.git --variable QQ_APP_ID=
+
+cordova plugin rm cordova-plugin-wechat
+cordova plugin add cordova-plugin-qqsdk --variable QQ_APP_ID=1106397915
+cordova plugin rm cordova-plugin-qqsdk
+cordova plugin add cordova-plugin-qqsdk --variable QQ_APP_ID=1106397883
+
+使用phonegap进行本地存储
+ window.localStorage.setItem("name",myName);//存储  
+                var result=document.getElementById("result");  
+                result.innerHTML="Your name is"+window.localStorage.getItem("name");//取出存储值  
+使用sqlite存储
+http://www.jianshu.com/p/540e12ecbadc
+
+ ionic开发——利用localStorage存储用户名和密码
+ http://blog.csdn.net/yu17310133443/article/details/52511069

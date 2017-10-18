@@ -1,0 +1,110 @@
+1、首先咱们要生成一个签名，
+keytool -genkey -v -keystore ionic-social-app-master.keystore -alias ionic-social-app-master -keyalg RSA -validity 365
+
+yixuhui
+pmtech
+pmtech
+jiangxi
+jiangxi
+CN
+
+2、复制ionic-social-app-master.keystore至ionic-social-app-master\platforms\android
+
+笔者观察了一下新版Cordova，用的是gradle来build项目，所以网上的那些设置ant.properties的解决方法都排除掉，不能用，为了看看到底咱需要什么才能让cordova知道哪里找keystore，笔者打开了 “项目路径\platforms\android”下面的build.gradle文件，里面赫然写着：
+
+咱们需要一个release-signing.properties 来提示gradle keystore的位置，于是在”项目路径\platforms\android”下面新建一个release-signing.properties ：
+key.store=ionic-social-app-master.keystore
+key.alias=ionic-social-app-master
+key.store.password=pmtech
+key.alias.password=pmtech
+
+3、cordova build android --release
+
+
+4、获取开发版本的SHA1的值;
+在“项目路径\platforms\android”下
+keytool -list -v -keystore ionic-social-app-master.keystore
+
+
+安装定位插件
+
+cordova plugin add https://github.com/yanxiaojun617/com.kit.cordova.amaplocation --save
+安装导航插件.如果只需要定位,则不需要安装导航插件
+
+cordova plugin add https://github.com/yanxiaojun617/com.kit.cordova.amapnavigation --save
+com.kit.cordova.amaplocation
+
+
+使用plugman 创建一个自己的cordova插件，有了插件就可以自己cordova plugin add 安装属于自己的插件。
+
+http://www.hangge.com/blog/cache/detail_1177.html
+1，添加Geolocation插件
+首先我们要在“终端”中进入工程所在的目录，然后运行如下命令：
+cordova plugin add cordova-plugin-geolocation
+----------------------------------------------------------------------------
+ $scope.gpstest = function(tid,term_id){
+            //定位数据获取成功响应
+            var onSuccess = function(position) {
+                    alert('纬度: '          + position.coords.latitude          + '\n' +
+                          '经度: '         + position.coords.longitude         + '\n' +
+                          '海拔: '          + position.coords.altitude          + '\n' +
+                          '水平精度: '          + position.coords.accuracy          + '\n' +
+                          '垂直精度: ' + position.coords.altitudeAccuracy  + '\n' +
+                          '方向: '           + position.coords.heading           + '\n' +
+                          '速度: '             + position.coords.speed             + '\n' +
+                          '时间戳: '         + position.timestamp                + '\n');
+            };
+ 
+                //定位数据获取失败响应
+            function onError(error) {
+                alert('code: '    + error.code    + '\n' +
+                          'message: ' + error.message + '\n');
+            }
+ 
+            //开始获取定位数据
+            navigator.geolocation.getCurrentPosition(onSuccess, onError);
+            //$state.go('tab.mybsdt', {tid: tid,term_id:term_id});
+        }
+-----------------------------------------------------------------------------------
+基于百度地图Android版定位SDK
+https://github.com/liyujun1989/cordova-qdc-baidu-location
+####一，申请密钥 请参照：申请密钥Android定位SDK
+
+####二，安装插件
+
+cordova plugin add https://github.com/mrwutong/cordova-qdc-baidu-location --variable API_KEY=QOYFQk4E5RQPQvOEkiQCQpKStlhIPx21
+
+cordova plugin add https://github.com/liyujun1989/cordova-qdc-baidu-location 
+
+或者百度地图定位Cordova插件，支持Android，IOS，ionic 1x 2x 均可使用
+cordova plugin add cordova-plugin-baidumaplocation --variable ANDROID_KEY="QOYFQk4E5RQPQvOEkiQCQpKStlhIPx21" --variable IOS_KEY="QOYFQk4E5RQPQvOEkiQCQpKStlhIPx21"
+
+
+
+-------------------------------------------------------------------------------------------
+F:\demo\ionic-social-app-master2\ionic-social-app-master\platforms\android>keyto
+ol -list -v -keystore ionic-social-app-master.keystore
+输入密钥库口令:
+
+密钥库类型: JKS
+密钥库提供方: SUN
+
+您的密钥库包含 1 个条目
+
+别名: ionic-social-app-master
+创建日期: 2017-10-17
+条目类型: PrivateKeyEntry
+证书链长度: 1
+证书[1]:
+所有者: CN=yixuhui, OU=pmtech, O=pmtech, L=jiangxi, ST=jiangxi, C=CN
+发布者: CN=yixuhui, OU=pmtech, O=pmtech, L=jiangxi, ST=jiangxi, C=CN
+序列号: 3bbf0e68
+有效期开始日期: Tue Oct 17 16:25:32 CST 2017, 截止日期: Wed Oct 17 16:25:32 CST
+2018
+证书指纹:
+         MD5: 19:0D:B3:6E:99:C3:E8:18:D7:72:18:BC:0A:22:30:03
+         SHA1: 13:39:6E:43:1B:D3:AD:5D:AC:BB:4A:72:0F:71:EE:A5:BA:56:12:CA
+         SHA256: 81:21:4B:1E:B2:F1:A9:0C:83:34:8A:5D:FC:14:B8:1A:C8:80:2C:87:6B:
+4A:9C:8E:F6:1F:E5:6B:A6:38:E4:F8
+         签名算法名称: SHA256withRSA
+         版本: 3
