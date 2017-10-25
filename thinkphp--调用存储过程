@@ -1,0 +1,11 @@
+//调用存储过程
+http://blog.csdn.net/p_tsui/article/details/45580229
+
+				unset($pubParm);
+				$pubParm["i_vTabName"] =  "Ctownratecfg_".$userid; //存储过程传入参数
+				$pubParm["i_vYm"] =  $bill_ym; //存储过程传入参数
+				$pubParm["i_vRegion"] =  $region_code; //存储过程传入参数
+				$pdName = "prc_TWTOWNRC";/*存储过程名*/
+				$out = M() ->execProcedure($pdName,$pubParm);//执行
+
+				echo $out["O_VMSG"];
