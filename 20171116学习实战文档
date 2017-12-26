@@ -1,0 +1,30 @@
+cordova plugin add cordova-plugin-wechat --variable wechatappid=wxb3f0dd7b263d5aec
+
+http://blog.csdn.net/liayn523/article/details/78415440
+
+
+wxb3f0dd7b263d5aec
+
+6fe35a767933dff9b049bb0dc9b95897
+
+D:\BaiduYunDownload\android-sdk-windows\platform-tools;D:\BaiduYunDownload\android-sdk-windows\tools
+
+
+
+cordova plugin rm cordova-plugin-compat
+-----------------------------------------
+cordova plugin rm cordova-plugin-wechat
+cordova plugin add cordova-plugin-wechat --variable wechatappid=wxb3f0dd7b263d5aec
+-----------------------------------------
+cordova plugin rm cordova-plugin-qqsdk
+cordova plugin add cordova-plugin-qqsdk --variable QQ_APP_ID=1106397883
+-----------------------------------------
+或者百度地图定位Cordova插件，支持Android，IOS，ionic 1x 2x 均可使用
+cordova plugin rm cordova-plugin-baidumaplocation
+cordova plugin add cordova-plugin-baidumaplocation --variable ANDROID_KEY="QOYFQk4E5RQPQvOEkiQCQpKStlhIPx21" --variable IOS_KEY="QOYFQk4E5RQPQvOEkiQCQpKStlhIPx21"
+-----------------------------------------
+cordova platform add android --save
+-----------------------------------------
+cordova build android --release
+-----------------------------------------
+cordova run android

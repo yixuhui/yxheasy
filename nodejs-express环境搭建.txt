@@ -1,0 +1,31 @@
+1. 环境说明
+
+OS: windows10-x64 
+node-v0.12.6-x64.msi
+
+2.搭建步骤
+
+先安装node-v0.12.6-x64.msi,在安装过程中指定安装目录,如我安装的目录为D:\nodejs。安装完成后，可以新起cmd，测试安装node -v是否成功
+
+在D:\nodejs目录下新建D:\nodejs\node_global和D:\nodejs\node_cache目录，然后在命令行下执行如下命令，改变npm启动和缓存位置 
+npm config set prefix D:\nodejs\node_global 
+npm config set cache D:\nodejs\node_cache
+
+安装express，执行如下命令 
+npm install -gd express 
+npm install -g express-generator
+
+测试express是否安装成功，如果express命令不识别，那么请在系统环境变量path中，添加上面的目录D:\nodejs\node_global
+
+新建一个测试目录，然后命令行进入改目录，执行express MyTest之后生成项目，如下： 
+express项目标准目录
+
+注意看上面图片生成信息，先进入MyTest目录，然后安装依赖 
+cd MyTest && npm install
+
+然后再执行 
+SET DEBUG=MyTest:* & npm start
+
+最后在浏览器访问http://localhost:3000/
+
+备注：关于Error: Cannot find module ‘express’的错误，在网上说法比较多，我开始也按照他们说的来做，但是都不成功，后来细心分析一下，一共有两个原因，1.express路径问题。2.项目生成说明不注意，上面图片生成的项目信息就已说明操作步骤，有时网上说法众多纷纭，但是都是一知半解，我自己也是，对于环境和nodejs的不熟悉，只能大概得出一些结论，未必准确，只是当作研究成果的心得笔记。

@@ -58,3 +58,6 @@ cordova plugin rm com.kit.cordova.amaplocation
 http://www.jianshu.com/p/85aceaee3b35
 由于已有封装好的定位和导航插件,所以基本上只需要熟读javascript api就够了,点这里查看高德javascript api示例
 http://lbs.amap.com/api/javascript-api/example/map/map-show
+
+npm install
+cordova platform add browser --save

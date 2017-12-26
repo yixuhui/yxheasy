@@ -1,0 +1,39 @@
+克隆jQuery的版本库。
+git clone https://github.com/jquery/jquery.git
+git clone <版本库的网址> <本地目录名>
+不带选项的时候，git remote命令列出所有远程主机。
+git remote -v 使用-v选项，可以参看远程主机的网址。
+git remote add命令用于添加远程主机。$ git remote add <主机名> <网址>
+git remote rm命令用于删除远程主机。
+git pull命令的作用是，取回远程主机某个分支的更新，再与本地的指定分支合并。它的完整格式稍稍有点复杂。
+1、创建新的空项目
+ionic start myPmtech blank
+
+
+
+
+? Please enter a name for your new app: myPmtech
+> ionic config set app_id "06380d0c" --json
+[OK] app_id set to "06380d0c" in .\myPmtech\ionic.config.json!
+> ionic git remote
+> git remote add ionic git@git.ionicjs.com:yixuhui/mypmtech.git
+[OK] Added remote ionic.
+[OK] Project linked with app 06380d0c!
+> git add -A
+> git commit -m "Initial commit" --no-gpg-sign
+
+Next Steps:
+* Go to your newly created project: cd .\myPmtech
+* Get Ionic DevApp for easy device testing: https://bit.ly/ionic-dev-app
+* Finish setting up Ionic Pro Error Monitoring: https://ionicframework.com/docs/
+pro/monitoring/#getting-started
+* Finally, push your code to Ionic Pro to perform real-time updates, and more: g
+it push ionic master
+
+
+F:\demo>
+
+
+ionic start myPmtech blank
+ionic serve
+cordova run browser

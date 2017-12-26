@@ -1,4 +1,9 @@
 cordova 常用插件 
+1.
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+2.把npm 改成cnpm 再安装。
+如 ：cnpm install -g cordova
+
 
 一、插件相关常用命令
  1、查看所有已经安装的插件

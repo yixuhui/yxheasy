@@ -19,6 +19,7 @@ key.store.password=pmtech
 key.alias.password=pmtech
 
 3、cordova build android --release
+cordova run android
 
 
 4、获取开发版本的SHA1的值;
@@ -83,8 +84,7 @@ cordova plugin add cordova-plugin-baidumaplocation --variable ANDROID_KEY="QOYFQ
 
 
 -------------------------------------------------------------------------------------------
-F:\demo\ionic-social-app-master2\ionic-social-app-master\platforms\android>keyto
-ol -list -v -keystore ionic-social-app-master.keystore
+F:\demo\ionic-social-app-master2\ionic-social-app-master\platforms\android>keytool -list -v -keystore ionic-social-app-master.keystore
 输入密钥库口令:
 
 密钥库类型: JKS

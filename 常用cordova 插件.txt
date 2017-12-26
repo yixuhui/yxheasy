@@ -1,5 +1,5 @@
 cordova 常用插件 
-
+http://blog.csdn.net/a1345g2354/article/details/65445682
 一、插件相关常用命令
  1、查看所有已经安装的插件
     cordova plugin ls 
