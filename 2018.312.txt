@@ -1,0 +1,9 @@
+
+1.
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+2.把npm 改成cnpm 再安装。
+如 ：cnpm install -g cordova ionic
+cnpm install -g express
+
+
+ionic start myPmtech0312 tabs 
