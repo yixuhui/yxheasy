@@ -1,0 +1,12 @@
+
+参照开发地址
+http://127.0.0.1:8080/sch/admin?function_code=1001&op_id=cff4ed6edcbc271a34f77596a6062b57&op_passwd=c7a73b2c72594ba9f3c92ba209357dde&goto=L3F1ZXJ5U1E/MT0xJmZ1bmN0aW9uX2NvZGU9MTAwMQ==
+
+http://127.0.0.1:8080/sch/admin?function_code=1178935&op_id=cff4ed6edcbc271a34f77596a6062b57&op_passwd=c7a73b2c72594ba9f3c92ba209357dde&goto=L0Roc2Nob29sTWFuPzE9MSZmdW5jdGlvbl9jb2RlPTExNzg5MzU=
+
+样式文件设置
+http://www.layui.com/doc/element/icon.html
+
+高中负责人
+/sch/src/com/cmcc/jkey/modules/flow/web/HighSchoolController.java
+/sch/WebRoot/WEB-INF/views/modules/highSchool
