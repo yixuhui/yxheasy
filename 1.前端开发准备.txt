@@ -1,0 +1,33 @@
+1.安装java环境
+2.安装GitHub Desktop，并注册账号
+3.安装nodejs
+4.ionic app开发
+执行命令安装
+4.1.taobao安装cnpm
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+4.2.把npm 改成cnpm 再安装。
+如 ：cnpm install -g cordova ionic
+cnpm install -g express
+
+到这里，我们就可以做ionic开发了，项目创建举例：
+ionic start myPmtech tabs 
+ionic serve
+
+4.3.Vue.js 安装(https://www.runoob.com/vue2/vue-install.html)
+# 最新稳定版
+$ cnpm install vue
+。。。。。。。。
+# 全局安装 vue-cli
+$ cnpm install --global vue-cli
+# 创建一个基于 webpack 模板的新项目
+$ vue init webpack my-project
+。。。。。。。。
+进入项目，安装并运行： 
+$ cd my-project
+$ cnpm install
+$ cnpm run dev
+
+5.app打包开发请使用HBuilder软件。
+
+
+
