@@ -1,5 +1,5 @@
 1.安装java环境
-2.安装GitHub Desktop，并注册账号
+2.安装GitHub Desktop，并注册账号，可以去Git网站下载开源代码
 3.安装nodejs
 4.ionic app开发
 执行命令安装
