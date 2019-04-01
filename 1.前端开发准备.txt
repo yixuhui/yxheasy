@@ -1,33 +1,132 @@
-1.安装java环境
-2.安装GitHub Desktop，并注册账号，可以去Git网站下载开源代码
-3.安装nodejs
-4.ionic app开发
-执行命令安装
-4.1.taobao安装cnpm
-npm install -g cnpm --registry=https://registry.npm.taobao.org
-4.2.把npm 改成cnpm 再安装。
-如 ：cnpm install -g cordova ionic
-cnpm install -g express
-
-到这里，我们就可以做ionic开发了，项目创建举例：
-ionic start myPmtech tabs 
-ionic serve
-
-4.3.Vue.js 安装(https://www.runoob.com/vue2/vue-install.html)
-# 最新稳定版
-$ cnpm install vue
-。。。。。。。。
-# 全局安装 vue-cli
-$ cnpm install --global vue-cli
-# 创建一个基于 webpack 模板的新项目
-$ vue init webpack my-project
-。。。。。。。。
-进入项目，安装并运行： 
-$ cd my-project
-$ cnpm install
-$ cnpm run dev
-
-5.app打包开发请使用HBuilder软件。
+select bill_ym,region_name ,org_num,mon_busi_num,mon_score from
+(SELECT bill_ym,b.region_name,COUNT(DISTINCT a.org_id) org_num,sum(mon_busi_num) mon_busi_num,sum(mon_score) mon_score FROM bonus.rBusiOrgScore a,sregioncode b,scountycode c
+ WHERE a.region_code=b.region_code(+) AND a.county_code=c.county_code(+)
+ AND bill_ym='$yd_op_bill_ym' 
+ and a.region_code like '%$yd_op_region_code%'
+ AND yg_type like'%$yd_yg_type%' 
+ GROUP BY bill_ym,region_name,a.region_code ORDER BY a.region_code
+) UNION ALL SELECT bill_ym,'合计',COUNT(DISTINCT a.org_id) org_num,sum(mon_busi_num) mon_busi_num,sum(mon_score) mon_score
+ FROM bonus.rBusiOrgScore a,sregioncode b,scountycode c
+ WHERE a.region_code=b.region_code(+) AND a.county_code=c.county_code(+)
+ AND bill_ym='$yd_op_bill_ym'
+ and a.region_code like '%$yd_op_region_code%'
+ AND yg_type like'%$yd_yg_type%' 
+ GROUP BY bill_ym
 
 
+select '$yd_op_bill_ym' bill_ym,f.region_name,b.county_name,c.org_name,a.op_id,
+d.op_name,e.type_name,a.mon_busi_num,mon_score
+from bonus.rBusiOprScore a,scountycode b,
+dorgmsg c,dopmsg$yd_op_bill_ym d,jxbonus.sopidtype e,sregioncode f
+where a.op_id=d.op_id(+)
+and a.county_code=b.county_code(+)
+and a.org_id=c.org_id(+)
+and a.region_code=f.region_code
+and a.op_id_type=e.type_code(+)
+and upper(e.table_id(+))=upper('dOpMsg')
+and a.bill_ym='$yd_op_bill_ym'
+and a.op_id_type is not null
+and a.region_code=e.region_code(+)
+and a.region_code like '%$yd_op_region_code'
+and a.county_code like '%$yd_op_county_code%'
+and a.org_id like '%$yd_op_org_id%'
+and a.op_id like '%$yd_sop_id%'
+order by a.region_code
 
+
+
+
+ ''<a href="/report-jxbonus/report/report/reportlink?fncode=2717^yd_region_code=''||a.region_code||''&yd_bill_ym=''||a.bill_ym||''^yd_yg_type=''||decode(''$yd_yg_type'',NULL,NULL,''Z'',''Z'',''W'',''W'')||''" target="_blank">
+<font color=#0000FF>'' ||b.region_name|| ''</font></a>'' region_name
+
+''<a href="/report-jxbonus/report/report/reportlink?fncode=2718^yd_op_county_code=''|| 
+case when a.county_code=9999 then ''%'' else to_char(a.county_code) end||''^yd_op_bill_ym=''||a.bill_ym||''^yd_op_region_code=''||a.region_code||''^yd_yg_type=''||decode(''$yd_yg_type'',NULL,NULL,''Z'',''Z'',''W'',''W'')||''" target="_blank"><font color=#0000FF>'' ||COUNT(DISTINCT a.org_id)|| ''</font>
+</a>''  org_num
+
+''<a href="/report-jxbonus/report/report/reportlink?fncode=27190^yd_op_county_code=''|| 
+case when a.county_code=9999 then ''%'' else to_char(a.county_code) end||''^yd_op_bill_ym=''||a.bill_ym||''^yd_op_region_code=''||a.region_code||''^yd_op_org_id=''||a.org_id|| 
+''" target="_blank"><font color=#0000FF>'' ||a.num|| ''</font></a>'' num
+
+''<a href="/report-jxbonus/report/report/reportlink?fncode=27150^yd_op_county_code=''|| case when a.county_code=9999 then ''%'' else to_char(a.county_code) end||''^yd_op_bill_ym=''||a.bill_ym||''^yd_op_region_code=''||a.region_code
+||''^yd_op_org_id=''||a.org_id|| ''^yd_sop_id=''||a.op_id||''" target="_blank">
+<font color=#0000FF>'' ||a.mon_score|| ''</font></a>'' mon_score
+
+''<a href="/report-jxbonus/report/report/reportlink?fncode=5351^yd_op_region_code=''||case WHEN region_code=999 then ''%'' 
+else to_char(region_code) end||''^yd_op_bill_ym=$yd_op_bill_ym''||''^yd_op_county=''||county_code||''^yd_op_org=''||org_id||''  "target="_blank"><font color=#0000FF>'' ||total_cash||''</font></a>'' total_cash
+
+''<a href="/report-jxbonus/report/report/reportlink?fncode=27190&yd_county_code=''|| 
+case when county_code=9999 then ''%'' else to_char(county_code) end||''^yd_op_bill_ym=''||a.bill_ym||''&yd_region_code=''||a.region_code||''
+^yd_op_org_id=''||c.org_id||''^yd_sop_id=''||op_id||''" target="_blank">
+<font color=#0000FF>'' ||
+total_score|| ''</font></a>'' else ''<a href="/report-jxbonus/report/report/reportlink?fncode=38805^yd_op_county_code=''|| 
+case when county_code=9999 then ''%'' else to_char(county_code) end||''^yd_op_bill_ym=''||a.bill_ym||''^yd__op_region_code=''||a.region_code||''
+^yd_op_op_org=''||c.org_id||''^yd_sop_id=''||op_id||''" target="_blank">
+<font color=#0000FF>' '||
+total_score|| ''</font></a>'' 
+       end total_score
+
+
+       ''<a href="/report-jxbonus/report/report/reportlink?fncode=26560^yd_op_county_code=''|| 
+case when county_code=9999 then ''%'' else to_char(county_code) end||''^yd_op_bill_ym=''||bill_ym||''^yd_op_region_code=''||a.region_code||''^yd_op_org_id=''||org_id|| 
+''^yd_sop_id=''||op_id||''" target="_blank"><font color=#0000FF>'' ||
+cal_cash|| ''</font></a>'' cal_cash
+
+''<a href="/report-jxbonus/report/report/reportlink?fncode=4584^yd_jk_bill_ym=''||a.bill_ym||''^yd_jk_region_code=''||case WHEN a.region_code=999 then ''%'' else to_char(a.region_code) end||''^yd_jk_county_code=''||case WHEN a.county_code=9999 then ''%'' else to_char(a.county_code) end||''^yd_jk_mgr_op_id=''||a.mgr_op_id||''^yd_jk_op_type=''||a.station_code||''" target="_blank"><font color=#0000FF>'' ||a.mgr_op_id||''</font></a>'' 客户经理br工号
+
+''<a href="/report-jxbonus/report/report/reportlink?fncode=4585&yd_jk_bill_ym=''||a.bill_ym||''^yd_jk_region_code=''||case WHEN a.region_code=999 then ''%'' else to_char(a.region_code) end||''^yd_jk_county_code=''||case WHEN a.county_code=9999 then ''%'' else to_char(a.county_code) end||''^yd_jk_mgr_op_ids=''||a.mgr_op_id||''^yd_jk_group_id=''||a.group_id||''" target="_blank"><font color=#0000FF>'' ||a.group_id||''</font></a>'' 集团代码
+
+ update r_dreportMsg 
+set report_sql=replace(report_sql,'ljw1','''<a href="/report-jxbonus/report/report/reportlink?fncode=4586^yd_jk_bill_ym=''||a.bill_ym||''^yd_jk_region_code=''||case WHEN a.region_code=999 then ''%'' else to_char(a.region_code) end||''^yd_jk_county_code=''||case WHEN a.county_code=9999 then ''%'' else to_char(a.county_code) end||''^yd_jk_mgr_op_ids=''||a.mgr_op_id||''^yd_jk_group_id=''||a.group_id||''^yd_jk_gxxh_code=''||a.gxxh_code||''" target="_blank"><font color=#0000FF>'' ||a.xxh_cash||''</font></a>''')
+where function_code='27120';
+
+''<a href="/report-jxbonus/report/report/reportlink?fncode=4638^yd_jk_bill_ym=''||a.bill_ym||''^yd_jk_region_code=''||case WHEN a.region_code=999 then ''%'' else to_char(a.region_code) end||''^yd_jk_county_code=''||case WHEN a.county_code=9999 then ''%'' else to_char(a.county_code) end||''^yd_jk_mgr_op_ids=''||a.mgr_op_id||''" target="_blank"><font color=#0000FF>'' ||a.xxh_cash||''</font></a>''
+
+''<a href="/report-jxbonus/report/report/reportlink?fncode=4586^yd_jk_bill_ym=''||a.bill_ym||''^yd_jk_region_code=''||case WHEN a.region_code=999 then ''%'' else to_char(a.region_code) end||''^yd_jk_county_code=''||case WHEN a.county_code=9999 then ''%'' else to_char(a.county_code) end||''^yd_jk_mgr_op_ids=''||a.mgr_op_id||''^yd_jk_group_id=''||a.group_id||''^yd_jk_gxxh_code=''||a.gxxh_code||''" target="_blank"><font color=#0000FF>'' ||a.xxh_cash||''</font></a>''
+
+''<a href="/report-jxbonus/report/report/reportlink?fncode=5450^yd_op_region_code='' || case
+         when region_code = 999 then
+          ''%''
+         else
+          to_char(region_code)
+       end || ''^yd_op_county='' || case
+         when county_code = 9999 then
+          ''%''
+         else
+          to_char(county_code)
+       end || ''^yd_op_bill_ym='' || bill_ym || ''^yd_op_new_id='' || ZG_OP_ID ||
+       '' " target="_blank"><font color=#0000FF>'' || score || ''</font></a>'' score
+
+update r_dreportMsg 
+set report_sql=replace(report_sql,'ljw','')
+where function_code='27120';
+
+'<span title="'|| nvl(k.remark,0) || '">' || substr(nvl(k.remark,0),1,3) || '...</span>' remark
+
+地市名称|区县名称|渠道ID|渠道名称|店长姓名
+''<a href="/report-jxbonus/report/report/reportlink?fncode=53936^yd_jk_region_code='' || case
+            WHEN region_code = 999 then
+             ''%''
+            else
+             to_char(region_code)
+          end || ''^yd_jk_bill_ym='' || bill_ym ||
+          '' " target="_blank"><font color=#0000FF>'' || region_name ||
+          ''</font></a>''
+
+
+          ''<a href="/report-jxbonus/report/report/reportlink?fncode=5026^yd_tw_region_code=''||case when a.region_code=999 then ''%'' else to_char(a.region_code) end||''^yd_tw_bill_ym=''||bill_ym||'' " target="_blank"><font color=#0000FF>'' ||a.region_name||''</font></a>''
+
+          ''<a href="/report-jxbonus/report/report/reportlink?fncode=5028^yd_tw_region_code=''||case when region_code=999 then ''%'' else to_char(region_code) end||''^yd_tw_county=''||case when county_code=9999 then ''%'' else to_char(county_code)  end||''^yd_tw_bill_ym=''||bill_ym||''" target="_blank"><font color=#0000FF>'' ||county_name||''</font></a>''
+
+          ''<a href="/report-jxbonus/report/report/reportlink?fncode=5029^yd_tw_region_code=''||case when region_code=999 then ''%'' 
+  else to_char(region_code) end||''^yd_tw_county=''||case when county_code=9999 then ''%'' else to_char(county_code) 
+    end||''^yd_tw_town=''||case when town_id=99999 then ''%'' else to_char(town_id) 
+    end||''^yd_tw_bill_ym=''||bill_ym||''" target="_blank"><font color=#0000FF>''||town_name||''</font></a>''
+
+    ''<a href="/report-jxbonus/report/report/reportlink?fncode=5020^yd_tw_region_codes=''||case when region_code=999 then ''%'' else to_char(region_code) end||''^yd_tw_county=''||case when county_code=9999 then ''%'' else to_char(county_code) end||''^yd_tw_town=''||town_id||''^yd_tw_bill_ym=''||bill_ym||''^yd_tw_op=''||tw_op_id||''" target="_blank"><font color=#0000FF>''||boss_cash||''</font></a>'' boss_cash
+
+    ''<a href="/report-jxbonus/report/report/reportlink?fncode=5043^yd_tw_region_codes=''||case when region_code=999 then ''%'' else to_char(region_code) end||''^yd_tw_county=''||case when county_code=9999 then ''%'' else to_char(county_code) end||''^yd_tw_town=''||town_id||''^yd_tw_bill_ym=''||bill_ym||''^yd_tw_op=''||tw_op_id||''" target="_blank"><font color=#0000FF>''||xxh_cash||''</font></a>'' xxh_cash
+
+
+update r_dreportMsg 
+set report_sql=replace(report_sql,'hjb','''<a href="/report-jxbonus/report/report/reportlink?fncode=5043^yd_tw_region_codes=''||case when region_code=999 then ''%'' else to_char(region_code) end||''^yd_tw_county=''||case when county_code=9999 then ''%'' else to_char(county_code) end||''^yd_tw_town=''||town_id||''^yd_tw_bill_ym=''||bill_ym||''^yd_tw_op=''||tw_op_id||''" target="_blank"><font color=#0000FF>''||xxh_cash||''</font></a>'' xxh_cash')
+where function_code='27120';

@@ -1,0 +1,188 @@
+
+2、先装pcre
+
+# tar zxvf pcre-8.38.tar.gz
+# cd pcre-8.38
+# ./configure --prefix="想安装的目录,在自己用户目录下创建目录"
+# make
+# make install
+
+这里面第二行命令中pcre-8.38目录就是下面安装nginx命令中--with-pcre中填的目录
+
+3、安装nginx
+
+# tar zxvf nginx-1.5.9.tar.gz
+# cd nginx-1.5.9
+# ./configure --with-http_stub_status_module –prefix=/usr/webserver/nginx --with-pcre="上面所提到的pcre-8.38" --user="你的用户名或者用户组（否则非root用户无法支持php）"
+# make
+./configure --prefix=/channel/nhklhxc/web/nginx159 --with-http_stub_status_module --with-http_ssl_module  --with-openssl=/channel/nhklhxc/web/openssl2.0.10
+# make install
+
+2、安装Nginx及相关组件
+
+openssl安装
+
+[root@localhost src]# tar zxvf openssl-fips-2.0.10.tar.gz
+省略安装内容...
+[root@localhost src]# cd openssl-fips-2.0.10
+ ./config --prefix=/channel/nhklhxc/web/openssl2.0.10
+[root@localhost openssl-fips-2.0.10]# ./config && make && make install
+省略安装内容...
+pcre安装
+
+[root@localhost src]# tar zxvf pcre-8.40.tar.gz
+省略安装内容...
+[root@localhost src]# cd pcre-8.40
+[root@localhost pcre-8.40]# ./configure && make && make install
+省略安装内容...
+zlib安装
+
+[root@localhost src]# tar zxvf zlib-1.2.11.tar.gz
+省略安装内容...
+[root@localhost src]# cd zlib-1.2.11
+[root@localhost zlib-1.2.11]# ./configure && make && make install
+省略安装内容...
+nginx安装
+
+[root@localhost src]# tar zxvf nginx-1.10.2.tar.gz
+省略安装内容...
+[root@localhost src]# cd nginx-1.10.2
+[root@localhost nginx-1.10.2]# ./configure && make && make install
+省略安装内容...
+3、启动Nginx
+
+先找一下nginx安装到什么位置上了
+
+ 
+
+进入nginx目录并启动
+
+
+
+报错了，error while loading shared libraries: libpcre.so.1: cannot open shared object file: No such file or directory，按照下面方式解决
+
+复制代码
+1.用whereis libpcre.so.1命令找到libpcre.so.1在哪里
+2.用ln -s /usr/local/lib/libpcre.so.1 /lib64命令做个软连接就可以了
+3.用sbin/nginx启动Nginx
+4.用ps -aux | grep nginx查看状态
+[root@localhost nginx]# whereis libpcre.so.1
+[root@localhost nginx]# ln -s /usr/local/lib/libpcre.so.1 /lib64
+[root@localhost nginx]# sbin/nginx
+[root@localhost nginx]# ps -aux | grep nginx 
+复制代码
+
+
+进入Linux系统的图形界面，打开浏览器输入localhost会看到下图，说明nginx启动成功
+
+
+
+nginx的基本操作
+
+复制代码
+启动
+[root@localhost ~]# /usr/local/nginx/sbin/nginx
+停止/重启
+[root@localhost ~]# /usr/local/nginx/sbin/nginx -s stop(quit、reload)
+命令帮助
+[root@localhost ~]# /usr/local/nginx/sbin/nginx -h
+验证配置文件
+[root@localhost ~]# /usr/local/nginx/sbin/nginx -t
+配置文件
+[root@localhost ~]# vim /usr/local/nginx/conf/nginx.conf
+复制代码
+4、简单配置Nginx
+
+打开nginx配置文件位于nginx目录下的conf文件夹下
+
+
+
+简单介绍一下vim的语法
+
+复制代码
+默认vim打开后是不能录入的，需要按键才能操作，具体如下：
+开启编辑：按“i”或者“Insert”键
+退出编辑：“Esc”键
+退出vim：“:q”
+保存vim：“:w”
+保存退出vim：“:wq”
+不保存退出vim：“:q!”
+复制代码
+"#"代表注释，最重要的是server{}块这部分就代表每一个web站点，详细的配置介绍可以查阅我的另一片配置文章，此处我们先暂时设置三个站点
+
+ 
+
+分别使用不同的端口80、81、82保存退出并且重启nginx
+
+
+
+5、开启外网访问
+
+在Linux系统中默认有防火墙Iptables管理者所有的端口，只启用默认远程连接22端口其他都关闭，咱们上面设置的80等等也是关闭的，所以我们需要先把应用的端口开启
+
+方法一直接关闭防火墙，这样性能较好，但安全性较差，如果有前置防火墙可以采取这种方式
+
+关闭防火墙
+[root@localhost ~]# service iptables stop
+关闭开机自启动防火墙
+[root@localhost ~]# chkconfig iptables off
+[root@localhost ~]# chkconfig --list|grep ipt
+下面是防火墙的其他操作命令
+
+
+
+方法二将开启的端口加入防火墙白名单中，这种方式较安全但性能也相对较差
+
+编辑防火墙白名单
+[root@localhost ~]# vim /etc/sysconfig/iptables
+增加下面一行代码
+-A INPUT -p tcp -m state -- state NEW -m tcp --dport 80 -j ACCEPT
+保存退出，重启防火墙
+[root@localhost ~]# service iptables restart
+
+
+ 
+
+Linux配置完毕了，使用另一台电脑而非安装nginx的电脑，我是用的windows系统，配置一下host在“C:\Windows\System32\drivers\etc”下的hosts中配置一下域名重定向
+
+10.11.13.22 nginx.test.com nginx.test1.com nginx.test2.com
+然后cmd再ping一下这个域名是否正确指向了这个IP上
+
+
+
+正确指向后在telnet一下80端口看一下是否可以与端口通信（如果telnet提示没有此命令是没有安装客户端，在启用或禁用windows功能处安装后再操作即可）
+
+
+
+得到以下界面及代表通信成功
+
+
+
+打开这台Windows系统内的浏览器，输入nginx.test.com会得到以下结果，就说明外网访问成功
+
+
+
+如果防火墙你依然启用，只是设置了启用端口，那我们访问81那个端口会发现无法访问，因为我并没有加入白名单
+
+
+
+/bin/sh: line 2: ./config: No such file or directory
+make[1]: *** [/usr/local/ssl/.openssl/include/openssl/ssl.h] Error 127
+make[1]: Leaving directory `/usr/local/src/nginx-1.9.9'
+make: *** [build] Error 2
+需要说明的是，我这里编译所使用的Nginx源码是1.9.9的。根据报错信息我们知道，出错是因为Nginx在编译时并不能在/usr/local/ssl/.openssl/ 这个目录找到对应的文件，其实我们打开/usr/local/ssl/这个目录可以发现这个目录下是没有.openssl目录的，因此我们修改Nginx编译时对openssl的路径选择就可以解决这个问题了
+解决方案：
+打开nginx源文件下的/usr/local/src/nginx-1.9.9/auto/lib/openssl/conf文件：
+找到这么一段代码：
+CORE_INCS="$CORE_INCS $OPENSSL/.openssl/include"
+CORE_DEPS="$CORE_DEPS $OPENSSL/.openssl/include/openssl/ssl.h"
+CORE_LIBS="$CORE_LIBS $OPENSSL/.openssl/lib/libssl.a"
+CORE_LIBS="$CORE_LIBS $OPENSSL/.openssl/lib/libcrypto.a"
+CORE_LIBS="$CORE_LIBS $NGX_LIBDL"
+修改成以下代码：
+CORE_INCS="$CORE_INCS $OPENSSL/include"
+CORE_DEPS="$CORE_DEPS $OPENSSL/include/openssl/ssl.h"
+CORE_LIBS="$CORE_LIBS $OPENSSL/lib/libssl.a"
+CORE_LIBS="$CORE_LIBS $OPENSSL/lib/libcrypto.a"
+CORE_LIBS="$CORE_LIBS $NGX_LIBDL"
+ 然后再进行Nginx的编译安装即可

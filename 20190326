@@ -1,0 +1,23 @@
+使用Vue构建Ionic混合APP系列
+https://blog.csdn.net/liujiawei00/article/details/79446231
+npm uninstall -g cordova
+
+npm更新包
+方法一手动跟新：
+　　　　　　手动修改package.json中依赖包版本，执行npm install --force，强制从远程下载所有包更新本地包
+
+方法二使用第三方插件：
+　　　　　　npm install -g npm-check-updates
+　　　　　　ncu // 查看可更新包
+　　　　　　ncu -u // 更新package.json
+　　　　　　npm install // 升级到最新版本
+
+　　缺点就是慢，下载让人捉急
+
+npm config set prefix "D:\Program Files\nodejs\node_global"
+npm config set cache "D:\Program Files\nodejs\node_cache"
+
+1。ANDDROID_HOME环境变量配置
+2。Gradle的安装和环境变量的配置
+3。如何使用Android SDK Manager下载 SDK
+https://www.cnblogs.com/Caiyilong/p/8559394.html
