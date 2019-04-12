@@ -15,7 +15,7 @@
 # cd nginx-1.5.9
 # ./configure --with-http_stub_status_module –prefix=/usr/webserver/nginx --with-pcre="上面所提到的pcre-8.38" --user="你的用户名或者用户组（否则非root用户无法支持php）"
 # make
-./configure --prefix=/channel/nhklhxc/web/nginx159 --with-http_stub_status_module --with-http_ssl_module  --with-openssl=/channel/nhklhxc/web/openssl2.0.10
+./configure --prefix=/channel/nhklhxc/web/nginx1592 --with-http_stub_status_module  --with-openssl=/channel/nhklhxc/soft/openssl-fips-2.0.10
 # make install
 
 2、安装Nginx及相关组件
@@ -186,3 +186,40 @@ CORE_LIBS="$CORE_LIBS $OPENSSL/lib/libssl.a"
 CORE_LIBS="$CORE_LIBS $OPENSSL/lib/libcrypto.a"
 CORE_LIBS="$CORE_LIBS $NGX_LIBDL"
  然后再进行Nginx的编译安装即可
+
+
+1,openssl安装
+
+cd openssl-fips-2.0.10
+./config --prefix=/pmtech/web/openssl
+make && make install
+2.pcre安装
+cd pcre-8.43
+./config --prefix=/pmtech/web/pcre
+make && make install
+
+3.zlib安装
+cd zlib-1.2.11
+./config --prefix=/pmtech/web/zlib
+make && make install
+
+4，nginx安装
+4.1configure命令
+./configure --prefix=/pmtech/web/nginx159 --with-http_stub_status_module --with-openssl=/pmtech/soft/openssl-fips-2.0.10 --with-pcre=/pmtech/soft/pcre-8.43 --with-zlib=/pmtech/soft/zlib-1.2.11
+make && make install
+
+4.2，修改端口
+vi /channel/nhklhxc/web/nginx159/conf/nginx.conf 
+把8080修改成8082
+
+4.3，启动服务
+
+cd /channel/nhklhxc/web/nginx159/sbin
+
+./nginx
+
+4.4,停服务
+ps -ef |grep nginx
+杀端口
+
+
