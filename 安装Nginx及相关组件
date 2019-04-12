@@ -195,12 +195,12 @@ cd openssl-fips-2.0.10
 make && make install
 2.pcre安装
 cd pcre-8.43
-./config --prefix=/pmtech/web/pcre
+./configure --prefix=/pmtech/web/pcre
 make && make install
 
 3.zlib安装
 cd zlib-1.2.11
-./config --prefix=/pmtech/web/zlib
+./configure --prefix=/pmtech/web/zlib
 make && make install
 
 4，nginx安装
