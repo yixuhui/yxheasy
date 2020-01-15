@@ -1,0 +1,38 @@
+window下安装PM2
+
+1，npm install pm2 -g
+2，
+安装并配置 pm2-windows-service
+pm2-windows-service可以将 pm2 安装成 windows service, 达到开机运行的目的
+
+npm i -g pm2-windows-service
+添加pm2环境变量
+添加系统环境变量 PM2_HOME=D:\.pm2
+右键 [我的电脑] - [属性] - [高级系统设置] - [环境变量] - 新建 [系统变量]
+名称PM2_HOME
+路径D:\.pm2（这路径根据自己需要定）
+
+安装服务
+以管理员权限打开新的命令行窗口,执行以下命令来安装服务
+
+pm2-service-install
+Perform environment setup ? 选 n, 继续
+此时, PM2服务已安装成功并已启动, 可以通过 Wn+R来查看，输入services.msc即可看到服务
+
+启动node程序
+下面用 pm2 来启动我们自己的服务程序 app.js, 然后告诉 pm2 开机后自动运行我 app.js
+继续在管理员命令行下, cd 到 app.js 所在目录
+
+pm2 start app.js --name myapp
+pm2 start D:\yixuhui\vue\vue-ncpro1\server\server.js --name ncpro1
+查看服务列表
+
+pm2 list
+添加到自启动服务
+
+pm2 save 
+pm2 save很重要, 它保存当前pm2 正在管理的NodeJS服务, 并在开机后恢复这些服务
+至此, 安装配置完成
+
+卸载服务
+pm2-service-uninstall

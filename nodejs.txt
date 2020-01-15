@@ -1,0 +1,16 @@
+使用cnpm命令安装全局的pm2。
+
+cnpm install -g pm2
+pm2装好后，假如你写好了一个node代码文件server.js，可以使用以下命令来启动一个站点：
+
+pm2 start server.js --name 'hello'
+这时就启动了一个名称为“hello”的node进程。
+
+接下来我们要做的是把pm2加入到开机启动中去，以便于pm2会随着服务器开机自启动，运行以下命令：
+
+pm2 startup
+pm2 save
+我们还可以使用命令pm2 list查看当前node服务进程。
+
+
+我们还可以使用pm2 show hello查看名称为“hello”的node进程详情。

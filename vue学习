@@ -3,7 +3,27 @@
 ///////http://element.eleme.io/#/zh-CN/component/installation
 //https://www.cnblogs.com/dwj88/p/7606224.html
 
-vue init webpack my-project
+# 全局安装 vue-cli
+$ cnpm install --global vue-cli
+# 创建一个基于 webpack 模板的新项目
+$ vue init webpack my-project
+# 这里需要进行一些配置，默认回车即可
+
+
+? Project name  输入项目名称
+? Project description 输入项目描述
+? Author 作者
+? Vue build 打包方式，回车就好了
+? Install vue-router
+?  选择  Y 使用 vue-router，输入 N 不使用
+? Use ESLint to lint your code
+? 代码规范，推荐 N
+? Setup unit tests with Karma + Mocha
+? 单元测试，推荐 N
+? Setup e2e tests with Nightwatch
+? E2E测试，N
+
+
 
 第二步：安装element-ui
 npm i element-ui@next -D  
@@ -11,3 +31,12 @@ npm i element-ui@next -D
 npm i element-ui -S
 
 3，npm i form-create -S
+
+
+
+vue init webpack transfer79
+cnpm install --save vuex
+cnpm install --save axios
+cnpm install --save element-ui
+cnpm install --save form-create
+cnpm install --save @form-create/element-ui

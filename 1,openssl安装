@@ -1,0 +1,19 @@
+1,openssl安装
+
+cd openssl-fips-2.0.10
+./config --prefix=/pmtech/web/openssl
+make && make install
+2.pcre安装
+cd pcre-8.43
+./configure --prefix=/pmtech/web/pcre
+make && make install
+
+3.zlib安装
+cd zlib-1.2.11
+./configure --prefix=/pmtech/web/zlib
+make && make install
+
+4，nginx安装
+4.1configure命令
+./configure --prefix=/pmtech/web/nginx159 --with-http_stub_status_module --with-openssl=/pmtech/soft/openssl-fips-2.0.10 --with-pcre=/pmtech/soft/pcre-8.43 --with-zlib=/pmtech/soft/zlib-1.2.11
+make && make install

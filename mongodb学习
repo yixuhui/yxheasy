@@ -1,0 +1,32 @@
+https://www.cnblogs.com/xjx767361314/p/10164779.html
+
+1.mongodb安装包链接
+链接：https://pan.baidu.com/s/1bxZ2oV-iJEs7RoH5kN6jVg
+密码：ajuj
+ 
+2.配置准备，创建文件夹及文件：
+mongodbwindows安装过程附带安装包百度云
+
+目录为：  
+\data\db        
+\etc\mongodb.conf       
+\logs\mongodb.log
+
+mongodb.conf配置文件内容：
+#数据库路径
+dbpath=D:\MongoDB\data\db
+#日志输出文件路径
+logpath=D:\MongoDB\logs\mongodb.log
+#错误日志采用追加模式，配置这个选项后mongodb的日志会追加到现有的日志文件，而不是重新创建一个新文件
+logappend=true
+#启用日志文件，默认启用
+journal=true
+                
+3.安装数据库，选择custom模式 ，自定义安装路径 D:\MongoDB
+4.配置mongodb环境变量，将D:\MongoDB\bin 路径加到path里面
+5.启动服务 mongod -f /config  D:\MongoDB\etc\mongdb.conf 目前系统不兼容，此问题待解决。。。
+
+
+D:\MongoDB\bin\mongod --dbpath D:\MongoDB\data\db
+
+net start MongoDB
