@@ -1,0 +1,19 @@
+python virtualenv虚拟环境以及Flask的安装
+1,安装 virtualenv
+sudo apt-get install python-virtualenv
+2,
+$ mkdir myproject
+$ cd myproject
+$ virtualenv venv
+New python executable in venv/bin/python
+Installing distribute............done.
+可能需要安装：
+sudo apt install python-pip
+
+
+
+
+使用gunicorn部署flask项目
+
+阿里云ECS上环境搭建(virtualenv+flask+gunicorn+supervisor+nginx)
+https://blog.csdn.net/lf8289/article/details/45478639 
