@@ -16,4 +16,4 @@ sudo apt install python-pip
 使用gunicorn部署flask项目
 
 阿里云ECS上环境搭建(virtualenv+flask+gunicorn+supervisor+nginx)
-https://blog.csdn.net/lf8289/article/details/45478639 
+https://blog.csdn.net/lf8289/article/details/45478639
